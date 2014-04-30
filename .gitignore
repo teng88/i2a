@@ -19,3 +19,11 @@
 *.exe
 *.out
 *.app
+Debug
+*.sdf
+Release
+C4
+C2
+C4.xcodeproj
+*.suo
+ipch
