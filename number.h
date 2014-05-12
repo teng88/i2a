@@ -21,57 +21,36 @@
 
 namespace i2a
 {
-	void NumberTest()
-	{
-		printf("start testing\n");
-		printf("end testing\n");
-	}
-
-	// test only
-	int GcdBasic(int a, int b)
-	{
-		int gcd = 1;
-		int c = std::min(a,b);
-		for (int i=2; i<=c; ++i) {
-			if (a%i == 0 && b%i == 0)
-				gcd = i;
-		}
-		return gcd;
-	}
-
 	//Theorem 31.9 (GCD recursion theorem)
 	//	For any nonnegative integer a and any positive integer b,
 	//	gcd(a,b) = gcd(b, a mod b).
-	// For any integer k >= 1, if a > b >= 1 and b < F(k+1), then the call EUCLID(a,b)
+	// For any integer k >= 1, if a > b >= 1 and b < F(k+1), then the call EUCLID(a,b)
 	//  makes fewer than k recursive calls.
-	int GcdEuclid(int a, int b)
+    template<typename T>
+	T gcdEuclid(T a, T b)
 	{
 		if (b == 0)
 			return a;
 		else
-			return GcdEuclid(b, a%b);
+			return gcdEuclid<T>(b, a%b);
 	}
-
+    
+    // same as gcdEuclid, with support of negative numbers
+    template<typename T>
+    T GcdEuclid(T a, T b)
+    {
+        return gcdEuclid<T>(a>0?a:-a, b>0?b:-b);
+    }
+    
 	// The extended form of Euclid's algorithm
+    // input a >= 0 && b >= 0
 	// d = gcd(a,b) = ax + by
 	// d'= gcd(b,a mod b) = bx' + (a mod b)y' = bx' + (a - (a/b)*b)y'
-	// => d = ay' + b(x'-(a/b)*b*y')
-	// => x = y', y = x'-(a/b)*b*y'
-	int GcdEuclid(int a, int b, int* x, int* y)
-	{
-		if (b == 0) {
-			*x = 1; *y = 0;
-			return a;
-		}
-		else {
-			int d2, x2, y2;
-			d2 = GcdEuclid(b, a%b, &x2, &y2);
-			*x = y2; *y = x2-(a/b)*y2;
-			return d2;
-		}
-	}
+	// => d = ay' + b(x'-(a/b)*y')
+	// => x = y', y = x'-(a/b)*y'
+	int GcdEuclid(int a, int b, int* x, int* y);
 
-	// ax = b (mod n)
+	// ax = b (mod n)
 	// d = gcd(a,n) = x'a + y'n
 	// ax0 = a(x'*(b/d)) (mod n)
 	//     = d*(b/d)     (mod n)
@@ -79,21 +58,33 @@ namespace i2a
 	// axi = a(x'*(b/d) + i*(n/d)) (mod n)
 	//     = b + a*i*(n/d)         (mod n)
 	//     = b                     (mod n)
-	std::vector<int> ModularLinearEquationSolver(int a, int b, int n)
-	{
-		std::vector<int> rst;
-		int d, x, y;
-		d = GcdEuclid(a, n, &x, &y);
-
-		if (b%d == 0) {
-			int x0 = x * (b/d) % n;
-			for (int i=0; i<d; ++i) {
-				int xi = (x0 + i*(n/d))%n;
-				rst.push_back(xi);
-			}
-		}
-		return rst;
-	}
+	std::vector<int> ModularLinearEquationSolver(int a, int b, int n);
+    
+    // a^b (mod n)
+    int64_t ModularExponentiation(int64_t a, int64_t b, int64_t n);
+    
+    // We say that n is a base-a pseudoprime if n is composite and
+    // a^(n-1) = 1 (mod n)
+    // Fermat’s theorem implies that if n is prime, then n satisfies equation for every a in {1,2,...,n-1}
+    // Thus, if we can find any a such that n does not satisfy equation, then n is certainly composite.
+    // This func return false if n is composite, true if n is base-2 pseudoprime or true prime
+    bool PseudoPrime(int n);
+    
+    // The Miller-Rabin randomized primality test
+    // n is an odd integer greater than 2
+    // return true if composite, false if prime(almost surely)
+    bool MillerRabin(int64_t n, int s=50);
+    
+    // Integer factorization
+    // find a factor of n (return n if no succeed, dead loop if n is prime)
+    // POLLARD-RHO, factors any number up to R^4 (unless we are unlucky).
+    int64_t PollardRho(int64_t n);
+    
+    // find the smallest factor of n (return n if n is a prime)
+    int64_t MinFactorPollardRho(int64_t n);
+    
+    // test function for number.h
+    void NumberTest();
 }
 
 #endif

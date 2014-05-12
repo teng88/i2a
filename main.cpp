@@ -2,9 +2,10 @@
 #include <iostream>
 
 using namespace i2a;
+using namespace std;
 
-int main()
+int main2()
 {
-    std::cout << "hello world" << std::endl;
+    NumberTest();
 	return 0;
 }
