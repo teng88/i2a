@@ -89,11 +89,11 @@ namespace i2a
     // where, n = p1^e1 * p2^e2 * p3^e3 ...
     std::vector<int64_t> FactorizationPollardRho(int64_t n);
     
-    // generate the prime table for numbers [0 n]
+    // generate the prime table for numbers [0 n] <-> v[n]
     // true for prime, false for composite
     std::vector<bool> PreparePrimeTable(int n);
     
-    // generate the prime table for numbers [0 n]
+    // generate the prime table for numbers [0 n] <-> v[n]
 	// 0 for prime, maximum factor for composite number
     std::vector<int> PreparePrimeTable2(int n);
     
