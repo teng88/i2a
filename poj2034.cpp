@@ -41,7 +41,7 @@ bool AntiPrime(int n, int m, int d, int p, int a[], bool v[], vector<bool>& t)
     return false;
 }
 
-int main()
+int poj2034()
 {
     int n,m,d;
     vector<bool> t = PreparePrimeTable(1000*10);

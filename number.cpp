@@ -266,6 +266,34 @@ namespace i2a
         return t;
     }
     
+    std::vector<int> PreparePrimeTable2(int n)
+    {
+        vector<int> t(n+1, 0);
+        for (int i=4; i<=n; i+=2) {
+            t[i] = 2;
+        }
+        for(int i=3; i<=n; ++i) {
+            if(t[i] == 0) {
+                for(int j=i+i; j<=n; j+=i) {
+                    t[j] = i;
+                }
+            }
+        }
+        return t;
+    }
+    
+    std::vector<int> Factorization(int n, vector<int>& t)
+    {
+        vector<int> fs;
+        int a;
+        while ((a=t[n])) {
+            fs.push_back(a);
+            n /= a;
+        }
+        fs.push_back(n);
+        return fs;
+    }
+    
     // test function for number.h
     void NumberTest()
 	{

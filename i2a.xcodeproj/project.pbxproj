@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		68210EBB1923C7060065FD7C /* poj2034.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68210EBA1923C7060065FD7C /* poj2034.cpp */; };
 		68210EBD19244FA20065FD7C /* poj1811.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68210EBC19244FA20065FD7C /* poj1811.cpp */; };
+		68210EBF192450CD0065FD7C /* poj1365.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68210EBE192450CD0065FD7C /* poj1365.cpp */; };
 		685B0A89191E2A5E00F4D613 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 685B0A87191E2A5E00F4D613 /* main.cpp */; };
 		68FE4340191E3D6700881CB7 /* oj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68FE433F191E3D6700881CB7 /* oj.cpp */; };
 		68FE4342191F7DFB00881CB7 /* number.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68FE4341191F7DFB00881CB7 /* number.cpp */; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		68210EBA1923C7060065FD7C /* poj2034.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = poj2034.cpp; sourceTree = "<group>"; };
 		68210EBC19244FA20065FD7C /* poj1811.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = poj1811.cpp; sourceTree = "<group>"; };
+		68210EBE192450CD0065FD7C /* poj1365.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = poj1365.cpp; sourceTree = "<group>"; };
 		685B0A87191E2A5E00F4D613 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		685B0A88191E2A5E00F4D613 /* number.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = number.h; sourceTree = "<group>"; };
 		68FE433E191E2D2A00881CB7 /* i2a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = i2a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +52,7 @@
 		680A14E1191E2A0500C09905 = {
 			isa = PBXGroup;
 			children = (
+				68210EBE192450CD0065FD7C /* poj1365.cpp */,
 				68210EBC19244FA20065FD7C /* poj1811.cpp */,
 				68210EBA1923C7060065FD7C /* poj2034.cpp */,
 				68FE4341191F7DFB00881CB7 /* number.cpp */,
@@ -111,6 +114,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68210EBF192450CD0065FD7C /* poj1365.cpp in Sources */,
 				68FE4340191E3D6700881CB7 /* oj.cpp in Sources */,
 				685B0A89191E2A5E00F4D613 /* main.cpp in Sources */,
 				68210EBB1923C7060065FD7C /* poj2034.cpp in Sources */,

@@ -89,7 +89,13 @@ namespace i2a
     std::vector<int64_t> FactorizationPollardRho(int64_t n);
     
     // generate the prime table for numbers [0 n]
+    // true for prime, false for composite
     std::vector<bool> PreparePrimeTable(int n);
+    
+    //
+    std::vector<int> PreparePrimeTable2(int n);
+    
+    std::vector<int> Factorization(int n, std::vector<int>& t);
     
     // test function for number.h
     void NumberTest();
