@@ -3,6 +3,8 @@
 #include <cstdlib>
 #include <cstdint>
 
+using namespace std;
+
 namespace i2a
 {
 	// test only
@@ -209,6 +211,59 @@ namespace i2a
         if ((n&1) == 0)
             return 2;
         return minFactorPollardRho(n);
+    }
+    
+    int64_t primeFactorPollardRho(int64_t n)
+    {
+        if ((n&1) == 0)
+            return 2;
+        while (MillerRabin(n)) {
+            int64_t f;
+            while ((f=PollardRho(n)) == n);
+            n /= f;
+        }
+        return n;
+    }
+    
+    std::vector<int64_t> FactorizationPollardRho(int64_t n)
+    {
+        std::vector<int64_t> fs;
+        int64_t f;
+        bool add_last = true;
+        while ((f=primeFactorPollardRho(n)) != n) {
+            int fn = 1;
+            n /= f;
+            while (n%f == 0) {
+                ++fn;
+                n /= f;
+            }
+            fs.push_back(f);
+            fs.push_back(fn);
+            if (n == 1) {
+                add_last = false;
+                break;
+            }
+        }
+        if (add_last) {
+            fs.push_back(f);
+            fs.push_back(1);
+        }
+            
+        return fs;
+    }
+    
+    std::vector<bool> PreparePrimeTable(int n)
+    {
+        vector<bool> t(n+1, true);
+        for (int i=4; i<=n; i+=2)
+            t[i] = false;
+        for(int i=3; i<=n; ++i) {
+            if(t[i]) {
+                for(int j=i+i; j<=n; j+=i)
+                    t[j] = false;
+            }
+        }
+        return t;
     }
     
     // test function for number.h

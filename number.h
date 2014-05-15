@@ -83,6 +83,14 @@ namespace i2a
     // find the smallest factor of n (return n if n is a prime)
     int64_t MinFactorPollardRho(int64_t n);
     
+    // get the int factorization of n with pollard rho algorithm
+    // in the form of: p1 e1 p2 e2 p3 e3 ...
+    // where, n = p1^e1 * p2^e2 * p3^e3 ...
+    std::vector<int64_t> FactorizationPollardRho(int64_t n);
+    
+    // generate the prime table for numbers [0 n]
+    std::vector<bool> PreparePrimeTable(int n);
+    
     // test function for number.h
     void NumberTest();
 }
