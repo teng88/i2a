@@ -1,7 +1,6 @@
 #include "number.h"
 #include <cmath>
 #include <cstdlib>
-#include <cstdint>
 
 using namespace std;
 

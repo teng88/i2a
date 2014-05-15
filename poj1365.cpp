@@ -38,15 +38,15 @@ int poj1365()
         }
         
         vector<int64_t> fs = FactorizationPollardRho(num-1);
-        for (int i=0; i<fs.size(); i+=2) {
-            for (int j=i+2; j<fs.size(); j+=2) {
+        for (int i=0; i<(int)fs.size(); i+=2) {
+            for (int j=i+2; j<(int)fs.size(); j+=2) {
                 if (fs[i] < fs[j]) {
                     std::swap(fs[i], fs[j]);
                     std::swap(fs[i+1], fs[j+1]);
                 }
             }
         }
-        for (int i=0; i<fs.size(); ++i) {
+        for (int i=0; i<(int)fs.size(); ++i) {
             cout << fs[i];
             if (i != fs.size()-1)
                 cout << " ";
@@ -89,7 +89,7 @@ int poj1365_()
             printf("%d ", fs[0]);
             int e = 1;
             int l = fs[0];
-            for (int i=1; i<fs.size(); ++i) {
+            for (int i=1; i<(int)fs.size(); ++i) {
                 if (fs[i] == l)
                     ++e;
                 else {

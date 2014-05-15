@@ -18,6 +18,7 @@
 #define _I2A_NUMBER_
 
 #include <vector>
+#include <cstdint>
 
 namespace i2a
 {
@@ -92,9 +93,12 @@ namespace i2a
     // true for prime, false for composite
     std::vector<bool> PreparePrimeTable(int n);
     
-    //
+    // generate the prime table for numbers [0 n]
+	// 0 for prime, maximum factor for composite number
     std::vector<int> PreparePrimeTable2(int n);
     
+	// get the factorization for small int number
+	// t is the prime table generated from PreparePrimeTable2
     std::vector<int> Factorization(int n, std::vector<int>& t);
     
     // test function for number.h

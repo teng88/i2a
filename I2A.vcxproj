@@ -15,6 +15,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="number.cpp" />
+    <ClCompile Include="oj.cpp" />
+    <ClCompile Include="poj1365.cpp" />
+    <ClCompile Include="poj1811.cpp" />
+    <ClCompile Include="poj2034.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{52F5B179-B259-4743-B21D-B53DD6383904}</ProjectGuid>
